@@ -1,7 +1,7 @@
 {
   "name": "react-app",
   "version": "0.1.0",
-  "homepage": "https://salma13ta.github.io/hemtnaa",
+  "homepage": "https://ahmedfathy112.github.io/hemtna",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -15,7 +15,6 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "proxy": "https://github.com/salma13ta/hemtnaa.git",
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
