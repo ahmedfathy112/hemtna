@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/hemtna/static/css/main.183aefdd.css",
+    "main.js": "/hemtna/static/js/main.29bce2c0.js",
+    "static/js/453.98bb53cb.chunk.js": "/hemtna/static/js/453.98bb53cb.chunk.js",
+    "static/media/7c1f555e (2).png": "/hemtna/static/media/9937d96f0cafac59d05f98addbb453597c1f555e (2).85d7a800616a270822bb.png",
+    "static/media/722f837b-b9db-4ef6-94bd-24b66670206a-removebg-preview.png": "/hemtna/static/media/722f837b-b9db-4ef6-94bd-24b66670206a-removebg-preview.94bde359e986d56ff92c.png",
+    "static/media/brain (2).png": "/hemtna/static/media/brain (2).c860d4fe3155fa3a7a80.png",
+    "static/media/brain (1).png": "/hemtna/static/media/brain (1).e887c8321bd47e8da07e.png",
+    "static/media/صعوب(3).png": "/hemtna/static/media/صعوب(3).284b1cf53c0e4f521395.png",
+    "static/media/2bf992e9.jpg": "/hemtna/static/media/84c1b0d51403f4f1d7e9bd56b7c704bb2bf992e9.efea2981b87318e227e1.jpg",
+    "static/media/71cc9e69.png": "/hemtna/static/media/5dd451a2cee37a4e1c59c120458b2f5371cc9e69.17006638c83fb2a05430.png",
+    "index.html": "/hemtna/index.html",
+    "main.183aefdd.css.map": "/hemtna/static/css/main.183aefdd.css.map",
+    "main.29bce2c0.js.map": "/hemtna/static/js/main.29bce2c0.js.map",
+    "453.98bb53cb.chunk.js.map": "/hemtna/static/js/453.98bb53cb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.183aefdd.css",
+    "static/js/main.29bce2c0.js"
+  ]
+}
