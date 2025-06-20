@@ -35,7 +35,7 @@
 }
 
 .user-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -82,7 +82,7 @@
 }
 
 .status-indicator.online {
-  background: #25D366;
+  background: #25d366;
   box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2);
 }
 
@@ -97,7 +97,7 @@
 .chat-window {
   display: flex;
   flex-direction: column;
-  height: 500vh;
+  height: 100vh;
   background: #f0f2f5;
 }
 
@@ -169,7 +169,8 @@
   gap: 15px;
 }
 
-.call-btn, .video-btn {
+.call-btn,
+.video-btn {
   background: none;
   border: none;
   font-size: 1.8rem;
@@ -183,13 +184,15 @@
   justify-content: center;
 }
 
-.call-btn svg, .video-btn svg {
+.call-btn svg,
+.video-btn svg {
   width: 28px;
   height: 28px;
   stroke-width: 2;
 }
 
-.call-btn:hover, .video-btn:hover {
+.call-btn:hover,
+.video-btn:hover {
   color: #023816;
   transform: scale(1.1);
   font-weight: 800;
@@ -235,8 +238,8 @@
 
 @media screen and (max-width: 992px) {
   .users-grid {
-      grid-template-columns: repeat(2, 220px);
-      gap: 16px;
+    grid-template-columns: repeat(2, 220px);
+    gap: 16px;
   }
 
   .profile-dialog {
@@ -291,7 +294,9 @@
     gap: 8px;
   }
 
-  .attach-btn, .voice-btn, .send-btn {
+  .attach-btn,
+  .voice-btn,
+  .send-btn {
     font-size: 1.2rem;
     padding: 8px;
   }
@@ -318,7 +323,9 @@
     gap: 20px;
   }
 
-  .end-call-btn, .toggle-video-btn, .toggle-mic-btn {
+  .end-call-btn,
+  .toggle-video-btn,
+  .toggle-mic-btn {
     width: 50px;
     height: 50px;
     font-size: 1.2rem;
@@ -330,7 +337,7 @@
     grid-template-columns: 189px;
     gap: 11px;
     padding: 16px;
-}
+  }
   .user-card {
     padding: 10px;
   }
@@ -361,7 +368,8 @@
     font-size: 1.1rem;
   }
 
-  .call-btn, .video-btn {
+  .call-btn,
+  .video-btn {
     font-size: 1.5rem;
     padding: 8px;
   }
@@ -398,7 +406,9 @@
     gap: 6px;
   }
 
-  .attach-btn, .voice-btn, .send-btn {
+  .attach-btn,
+  .voice-btn,
+  .send-btn {
     font-size: 1.1rem;
     padding: 6px;
   }
@@ -424,7 +434,9 @@
     gap: 15px;
   }
 
-  .end-call-btn, .toggle-video-btn, .toggle-mic-btn {
+  .end-call-btn,
+  .toggle-video-btn,
+  .toggle-mic-btn {
     width: 45px;
     height: 45px;
     font-size: 1.1rem;
@@ -512,11 +524,11 @@
 
 .message.received {
   align-self: flex-start;
-  background: #3676E033;
+  background: #3676e033;
   border-bottom-left-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   width: 50%;
-  max-width:100%;
+  max-width: 100%;
   padding: 10px 5px;
 }
 
@@ -634,13 +646,13 @@
 }
 
 .voice-waveform::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, #00a884, #25D366);
+  background: linear-gradient(90deg, #00a884, #25d366);
   opacity: 0.2;
   animation: waveform 2s infinite linear;
 }
@@ -692,7 +704,10 @@
   background: white;
 }
 
-.attach-btn, .voice-btn, .emoji-btn, .send-btn {
+.attach-btn,
+.voice-btn,
+.emoji-btn,
+.send-btn {
   background: none;
   border: none;
   font-size: 1.4rem;
@@ -702,7 +717,10 @@
   transition: all 0.3s ease;
 }
 
-.attach-btn:hover, .voice-btn:hover, .emoji-btn:hover, .send-btn:hover {
+.attach-btn:hover,
+.voice-btn:hover,
+.emoji-btn:hover,
+.send-btn:hover {
   color: #135991;
   transform: scale(1.05);
 }
@@ -767,15 +785,15 @@
   padding: 12px 16px;
   border-radius: 16px;
   max-width: 300px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   direction: ltr;
 }
 
 .audio-message:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .audio-message audio {
@@ -914,7 +932,9 @@
   pointer-events: auto;
 }
 
-.end-call-btn, .toggle-video-btn, .toggle-mic-btn {
+.end-call-btn,
+.toggle-video-btn,
+.toggle-mic-btn {
   width: 65px;
   height: 65px;
   border-radius: 50%;
@@ -944,7 +964,8 @@
   box-shadow: 0 0 30px rgba(220, 53, 69, 0.4);
 }
 
-.toggle-video-btn:hover, .toggle-mic-btn:hover {
+.toggle-video-btn:hover,
+.toggle-mic-btn:hover {
   background: rgba(255, 255, 255, 0.2);
   transform: scale(1.1);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
@@ -1150,6 +1171,5 @@
 @media screen and (max-width: 400px) {
   .user-info {
     flex-direction: column;
-}
-
+  }
 }

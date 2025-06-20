@@ -1,28 +1,28 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 import { IoCallOutline } from "react-icons/io5";
 import { CiVideoOn } from "react-icons/ci";
-import { 
-  FaPhone, 
-  FaVideo, 
-  FaPaperclip, 
-  FaMicrophone, 
-  FaSmile, 
-  FaPaperPlane, 
-  FaTimes, 
-  FaFile, 
-  FaImage, 
-  FaPlay, 
+import {
+  FaPhone,
+  FaVideo,
+  FaPaperclip,
+  FaMicrophone,
+  FaSmile,
+  FaPaperPlane,
+  FaTimes,
+  FaFile,
+  FaImage,
+  FaPlay,
   FaPause,
   FaArrowRight,
   FaGraduationCap,
-  FaStop
-} from 'react-icons/fa';
-import './HomeChat.css';
-import DialogRating from '../Rinning/DialogRating';
+  FaStop,
+} from "react-icons/fa";
+import "./HomeChat.css";
+import DialogRating from "../Rinning/DialogRating";
 
 const HomeChat = () => {
   const [selectedUser, setSelectedUser] = useState(null);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [isRecording, setIsRecording] = useState(false);
   const [recordingTime, setRecordingTime] = useState(0);
@@ -44,37 +44,91 @@ const HomeChat = () => {
 
   // Sample users data
   const users = [
-    { id: 1, name: 'أحمد', age: 8, illness: 'حساسية صدر', year: 3, phone: '01000000001', avatar: 'https://i.pravatar.cc/150?img=1', status: 'متصل الآن' },
-    { id: 2, name: 'سارة', age: 7, illness: 'سكري', year: 2, phone: '01000000002', avatar: 'https://i.pravatar.cc/150?img=2', status: 'آخر ظهور منذ 5 دقائق' },
-    { id: 3, name: 'محمد', age: 7, illness: 'سكري', year: 2, phone: '01000000002', avatar: 'https://i.pravatar.cc/150?img=3', status: 'متصل الآن' },
-    { id: 4, name: 'فاطمة', age: 7, illness: 'سكري', year: 2, phone: '01000000002', avatar: 'https://i.pravatar.cc/150?img=4', status: 'آخر ظهور منذ ساعة' },
-    { id: 5, name: 'علي', age: 7, illness: 'سكري', year: 2, phone: '01000000002', avatar: 'https://i.pravatar.cc/150?img=5', status: 'متصل الآن' },
-    { id: 6, name: 'نور', age: 7, illness: 'سكري', year: 2, phone: '01000000002', avatar: 'https://i.pravatar.cc/150?img=6', status: 'آخر ظهور منذ 3 دقائق' },
+    {
+      id: 1,
+      name: "أحمد",
+      age: 8,
+      illness: "حساسية صدر",
+      year: 3,
+      phone: "01000000001",
+      avatar: "https://i.pravatar.cc/150?img=1",
+      status: "متصل الآن",
+    },
+    {
+      id: 2,
+      name: "سارة",
+      age: 7,
+      illness: "سكري",
+      year: 2,
+      phone: "01000000002",
+      avatar: "https://i.pravatar.cc/150?img=2",
+      status: "آخر ظهور منذ 5 دقائق",
+    },
+    {
+      id: 3,
+      name: "محمد",
+      age: 7,
+      illness: "سكري",
+      year: 2,
+      phone: "01000000002",
+      avatar: "https://i.pravatar.cc/150?img=3",
+      status: "متصل الآن",
+    },
+    {
+      id: 4,
+      name: "فاطمة",
+      age: 7,
+      illness: "سكري",
+      year: 2,
+      phone: "01000000002",
+      avatar: "https://i.pravatar.cc/150?img=4",
+      status: "آخر ظهور منذ ساعة",
+    },
+    {
+      id: 5,
+      name: "علي",
+      age: 7,
+      illness: "سكري",
+      year: 2,
+      phone: "01000000002",
+      avatar: "https://i.pravatar.cc/150?img=5",
+      status: "متصل الآن",
+    },
+    {
+      id: 6,
+      name: "نور",
+      age: 7,
+      illness: "سكري",
+      year: 2,
+      phone: "01000000002",
+      avatar: "https://i.pravatar.cc/150?img=6",
+      status: "آخر ظهور منذ 3 دقائق",
+    },
   ];
 
   // Sample initial messages
   const initialMessages = [
     {
       id: 1,
-      text: 'مرحباً! كيف حالك اليوم؟',
-      sender: 'other',
-      timestamp: '10:30 AM',
-      type: 'text'
+      text: "مرحباً! كيف حالك اليوم؟",
+      sender: "other",
+      timestamp: "10:30 AM",
+      type: "text",
     },
     {
       id: 2,
-      text: 'الحمد لله، أنا بخير. وأنت؟',
-      sender: 'me',
-      timestamp: '10:31 AM',
-      type: 'text'
+      text: "الحمد لله، أنا بخير. وأنت؟",
+      sender: "me",
+      timestamp: "10:31 AM",
+      type: "text",
     },
     {
       id: 3,
-      text: 'أنا أيضاً بخير. هل تريد أن نبدأ الدرس؟',
-      sender: 'other',
-      timestamp: '10:32 AM',
-      type: 'text'
-    }
+      text: "أنا أيضاً بخير. هل تريد أن نبدأ الدرس؟",
+      sender: "other",
+      timestamp: "10:32 AM",
+      type: "text",
+    },
   ];
 
   useEffect(() => {
@@ -88,7 +142,7 @@ const HomeChat = () => {
   }, [messages]);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleUserClick = (user) => {
@@ -102,17 +156,17 @@ const HomeChat = () => {
       const newMessage = {
         id: Date.now(),
         text: message,
-        sender: 'me',
+        sender: "me",
         timestamp: new Date().toLocaleTimeString(),
-        type: 'text'
+        type: "text",
       };
       setMessages([...messages, newMessage]);
-      setMessage('');
+      setMessage("");
     }
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
     }
@@ -121,24 +175,24 @@ const HomeChat = () => {
   const startRecording = async () => {
     try {
       // Request microphone permission with optimal settings
-      const stream = await navigator.mediaDevices.getUserMedia({ 
+      const stream = await navigator.mediaDevices.getUserMedia({
         audio: {
           echoCancellation: true,
           noiseSuppression: true,
           autoGainControl: true,
           channelCount: 1,
           sampleRate: 48000,
-          sampleSize: 16
-        } 
+          sampleSize: 16,
+        },
       });
 
       // Create MediaRecorder with optimal settings
       const mediaRecorder = new MediaRecorder(stream, {
-        mimeType: 'audio/webm;codecs=opus',
+        mimeType: "audio/webm;codecs=opus",
         audioBitsPerSecond: 128000,
-        bitsPerSecond: 128000
+        bitsPerSecond: 128000,
       });
-      
+
       mediaRecorderRef.current = mediaRecorder;
       audioChunksRef.current = [];
 
@@ -153,17 +207,17 @@ const HomeChat = () => {
       mediaRecorder.onstop = async () => {
         try {
           if (audioChunksRef.current.length === 0) {
-            throw new Error('No audio data recorded');
+            throw new Error("No audio data recorded");
           }
 
-          const audioBlob = new Blob(audioChunksRef.current, { 
-            type: 'audio/webm;codecs=opus' 
+          const audioBlob = new Blob(audioChunksRef.current, {
+            type: "audio/webm;codecs=opus",
           });
 
           // Create a temporary audio element to validate the recording
           const audio = new Audio();
           audio.src = URL.createObjectURL(audioBlob);
-          
+
           // Wait for audio to be loaded
           await new Promise((resolve, reject) => {
             audio.onloadedmetadata = resolve;
@@ -172,17 +226,17 @@ const HomeChat = () => {
 
           const newMessage = {
             id: Date.now(),
-            sender: 'me',
+            sender: "me",
             audioUrl: audio.src,
             timestamp: new Date().toLocaleTimeString(),
-            type: 'audio',
-            duration: recordingTime
+            type: "audio",
+            duration: recordingTime,
           };
-          
-          setMessages(prevMessages => [...prevMessages, newMessage]);
+
+          setMessages((prevMessages) => [...prevMessages, newMessage]);
         } catch (error) {
-          console.error('Error processing audio:', error);
-          alert('حدث خطأ في معالجة التسجيل الصوتي. يرجى المحاولة مرة أخرى.');
+          console.error("Error processing audio:", error);
+          alert("حدث خطأ في معالجة التسجيل الصوتي. يرجى المحاولة مرة أخرى.");
         } finally {
           // Cleanup
           setRecordingTime(0);
@@ -192,23 +246,22 @@ const HomeChat = () => {
 
       // Handle errors during recording
       mediaRecorder.onerror = (event) => {
-        console.error('MediaRecorder error:', event);
+        console.error("MediaRecorder error:", event);
         stopRecording();
-        alert('حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.');
+        alert("حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.");
       };
 
       // Start recording with smaller chunks for better quality
       mediaRecorder.start(50);
       setIsRecording(true);
-      
+
       // Start timer
       timerRef.current = setInterval(() => {
-        setRecordingTime(prev => prev + 1);
+        setRecordingTime((prev) => prev + 1);
       }, 1000);
-
     } catch (error) {
-      console.error('Error starting recording:', error);
-      alert('حدث خطأ في بدء التسجيل. يرجى التحقق من صلاحيات الميكروفون.');
+      console.error("Error starting recording:", error);
+      alert("حدث خطأ في بدء التسجيل. يرجى التحقق من صلاحيات الميكروفون.");
       setIsRecording(false);
     }
   };
@@ -217,13 +270,13 @@ const HomeChat = () => {
     try {
       if (mediaRecorderRef.current && isRecording) {
         // Stop the recording
-        if (mediaRecorderRef.current.state !== 'inactive') {
+        if (mediaRecorderRef.current.state !== "inactive") {
           mediaRecorderRef.current.stop();
         }
-        
+
         // Stop all tracks
         if (mediaRecorderRef.current.stream) {
-          mediaRecorderRef.current.stream.getTracks().forEach(track => {
+          mediaRecorderRef.current.stream.getTracks().forEach((track) => {
             track.stop();
             track.enabled = false;
           });
@@ -239,7 +292,7 @@ const HomeChat = () => {
         setIsRecording(false);
       }
     } catch (error) {
-      console.error('Error stopping recording:', error);
+      console.error("Error stopping recording:", error);
       // Force reset states even if there's an error
       setIsRecording(false);
       setRecordingTime(0);
@@ -266,11 +319,15 @@ const HomeChat = () => {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
     const secs = seconds % 60;
-    
+
     if (hours > 0) {
-      return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      return `${hours}:${minutes.toString().padStart(2, "0")}:${secs
+        .toString()
+        .padStart(2, "0")}`;
     }
-    return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    return `${minutes.toString().padStart(2, "0")}:${secs
+      .toString()
+      .padStart(2, "0")}`;
   };
 
   const handleFileUpload = (event) => {
@@ -281,9 +338,9 @@ const HomeChat = () => {
         file: file,
         fileName: file.name,
         fileType: file.type,
-        sender: 'me',
+        sender: "me",
         timestamp: new Date().toLocaleTimeString(),
-        type: 'file'
+        type: "file",
       };
       setMessages([...messages, newMessage]);
     }
@@ -292,14 +349,16 @@ const HomeChat = () => {
   const formatCallDuration = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
-    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+    return `${minutes.toString().padStart(2, "0")}:${remainingSeconds
+      .toString()
+      .padStart(2, "0")}`;
   };
 
   const handleCall = async (type) => {
     try {
       const constraints = {
         audio: true,
-        video: type === 'video'
+        video: type === "video",
       };
 
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -311,18 +370,19 @@ const HomeChat = () => {
 
       // Start call timer
       callTimerRef.current = setInterval(() => {
-        setCallDuration(prev => prev + 1);
+        setCallDuration((prev) => prev + 1);
       }, 1000);
-
     } catch (error) {
-      console.error('Error starting call:', error);
-      alert('حدث خطأ في بدء المكالمة. يرجى التحقق من صلاحيات الميكروفون والكاميرا.');
+      console.error("Error starting call:", error);
+      alert(
+        "حدث خطأ في بدء المكالمة. يرجى التحقق من صلاحيات الميكروفون والكاميرا."
+      );
     }
   };
 
   const endCall = () => {
     if (localStreamRef.current) {
-      localStreamRef.current.getTracks().forEach(track => {
+      localStreamRef.current.getTracks().forEach((track) => {
         track.stop();
         track.enabled = false;
       });
@@ -357,18 +417,18 @@ const HomeChat = () => {
 
   const renderMessage = (msg) => {
     switch (msg.type) {
-      case 'text':
+      case "text":
         return (
           <div className="message-content">
             <p>{msg.text}</p>
             <span className="message-time">{msg.timestamp}</span>
           </div>
         );
-      case 'file':
+      case "file":
         return (
           <div className="message-content file-message">
             <div className="file-preview">
-              {msg.fileType.startsWith('image/') ? (
+              {msg.fileType.startsWith("image/") ? (
                 <img src={URL.createObjectURL(msg.file)} alt="Shared file" />
               ) : (
                 <FaFile className="file-icon" />
@@ -380,7 +440,7 @@ const HomeChat = () => {
             </div>
           </div>
         );
-      case 'audio':
+      case "audio":
         return (
           <div className="message-content">
             <audio controls src={msg.audioUrl} />
@@ -403,8 +463,16 @@ const HomeChat = () => {
               onClick={() => handleUserClick(user)}
             >
               <div className="user-avatar-container">
-                <img src={user.avatar} alt={user.name} className="user-avatar" />
-                <span className={`status-indicator ${user.status.includes('متصل') ? 'online' : ''}`}></span>
+                <img
+                  src={user.avatar}
+                  alt={user.name}
+                  className="user-avatar"
+                />
+                <span
+                  className={`status-indicator ${
+                    user.status.includes("متصل") ? "online" : ""
+                  }`}
+                ></span>
               </div>
               <h3>{user.name}</h3>
               <p className="user-status">{user.status}</p>
@@ -414,12 +482,22 @@ const HomeChat = () => {
       ) : (
         <div className="chat-window">
           <div className="chat-header">
-            <button className="back-button" onClick={() => setSelectedUser(null)}>
+            <button
+              className="back-button"
+              onClick={() => setSelectedUser(null)}
+            >
               <FaArrowRight />
             </button>
-            
-            <div className="user-info" onClick={() => setProfileUser(selectedUser)}>
-              <img src={selectedUser.avatar} alt={selectedUser.name} className="chat-avatar" />
+
+            <div
+              className="user-info"
+              onClick={() => setProfileUser(selectedUser)}
+            >
+              <img
+                src={selectedUser.avatar}
+                alt={selectedUser.name}
+                className="chat-avatar"
+              />
               <div className="user-details">
                 <h3>{selectedUser.name}</h3>
                 <p className="user-status">{selectedUser.status}</p>
@@ -427,11 +505,11 @@ const HomeChat = () => {
             </div>
 
             <div className="call-buttons">
-              <button className="call-btn" onClick={() => handleCall('voice')}>
+              <button className="call-btn" onClick={() => handleCall("voice")}>
                 <IoCallOutline />
               </button>
-              <button className="video-btn" onClick={() => handleCall('video')}>
-                <CiVideoOn/>
+              <button className="video-btn" onClick={() => handleCall("video")}>
+                <CiVideoOn />
               </button>
             </div>
           </div>
@@ -440,7 +518,9 @@ const HomeChat = () => {
             {messages.map((msg) => (
               <div
                 key={msg.id}
-                className={`message ${msg.sender === 'me' ? 'sent' : 'received'}`}
+                className={`message ${
+                  msg.sender === "me" ? "sent" : "received"
+                }`}
               >
                 {renderMessage(msg)}
               </div>
@@ -450,7 +530,7 @@ const HomeChat = () => {
 
           <div className="message-input">
             <div className="input-buttons">
-              <button 
+              <button
                 className="attach-btn"
                 onClick={() => setShowFileMenu(!showFileMenu)}
               >
@@ -466,22 +546,27 @@ const HomeChat = () => {
                       accept="image/*"
                       onChange={handleFileUpload}
                       ref={fileInputRef}
-                      style={{ display: 'none' }}
+                      style={{ display: "none" }}
                     />
-                  </label>  
+                  </label>
                 </div>
               )}
-              <button 
-                className={`voice-btn ${isRecording ? 'recording' : ''}`}
+              <button
+                className={`voice-btn ${isRecording ? "recording" : ""}`}
                 onClick={isRecording ? stopRecording : startRecording}
                 title={isRecording ? "إيقاف التسجيل" : "بدء التسجيل"}
-                disabled={!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia}
+                disabled={
+                  !navigator.mediaDevices ||
+                  !navigator.mediaDevices.getUserMedia
+                }
               >
                 {isRecording ? <FaStop /> : <FaMicrophone />}
                 {isRecording && (
                   <div className="recording-indicator">
                     <span className="recording-dot"></span>
-                    <span className="recording-timer">{formatRecordingTime(recordingTime)}</span>
+                    <span className="recording-timer">
+                      {formatRecordingTime(recordingTime)}
+                    </span>
                   </div>
                 )}
               </button>
@@ -493,36 +578,44 @@ const HomeChat = () => {
               placeholder="اكتب رسالة..."
             />
             <div className="input-buttons">
-        
-        <button
+              <button
                 className="send-btn"
                 onClick={handleSendMessage}
                 disabled={!message.trim()}
-        >
+              >
                 <FaPaperPlane />
-        </button>
-      </div>
+              </button>
+            </div>
           </div>
 
           {isCallActive && (
             <div className="call-overlay">
               <div className="call-info">
-                <div className="call-duration">{formatCallDuration(callDuration)}</div>
-                <div className="call-status">مكالمة {localStreamRef.current?.getVideoTracks().length > 0 ? 'فيديو' : 'صوتية'}</div>
+                <div className="call-duration">
+                  {formatCallDuration(callDuration)}
+                </div>
+                <div className="call-status">
+                  مكالمة{" "}
+                  {localStreamRef.current?.getVideoTracks().length > 0
+                    ? "فيديو"
+                    : "صوتية"}
+                </div>
               </div>
               <div className="call-controls">
                 <button className="end-call-btn" onClick={endCall}>
                   <FaPhone />
                 </button>
-                <button 
-                  className={`toggle-mic-btn ${isMuted ? 'active' : ''}`} 
+                <button
+                  className={`toggle-mic-btn ${isMuted ? "active" : ""}`}
                   onClick={toggleMute}
                 >
                   <FaMicrophone />
                 </button>
                 {localStreamRef.current?.getVideoTracks().length > 0 && (
-                  <button 
-                    className={`toggle-video-btn ${isCameraOff ? 'active' : ''}`} 
+                  <button
+                    className={`toggle-video-btn ${
+                      isCameraOff ? "active" : ""
+                    }`}
                     onClick={toggleCamera}
                   >
                     <FaVideo />
@@ -535,21 +628,48 @@ const HomeChat = () => {
       )}
 
       {profileUser && (
-        <div className="profile-dialog-overlay" onClick={() => setProfileUser(null)}>
-          <div className="profile-dialog" onClick={e => e.stopPropagation()}>
-            <button className="close-btn close" onClick={() => setProfileUser(null)}>✕</button>
+        <div
+          className="profile-dialog-overlay"
+          onClick={() => setProfileUser(null)}
+        >
+          <div className="profile-dialog" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="close-btn close"
+              onClick={() => setProfileUser(null)}
+            >
+              ✕
+            </button>
             <div className="profile-header">
-              <img src={profileUser.avatar} alt={profileUser.name} className="profile-avatar" />
+              <img
+                src={profileUser.avatar}
+                alt={profileUser.name}
+                className="profile-avatar"
+              />
               <h2>{profileUser.name}</h2>
-              
             </div>
             <div className="profile-details">
-              {profileUser.age && <p><b>السن:</b> {profileUser.age} سنوات</p>}
-              {profileUser.illness && <p><b>الحالة المرضية:</b> {profileUser.illness}</p>}
-              {profileUser.year && <p><b>المستوى الدراسي:</b> {profileUser.year}</p>}
-              {profileUser.phone && <p><b>رقم الهاتف:</b> {profileUser.phone}</p>}
+              {profileUser.age && (
+                <p>
+                  <b>السن:</b> {profileUser.age} سنوات
+                </p>
+              )}
+              {profileUser.illness && (
+                <p>
+                  <b>الحالة المرضية:</b> {profileUser.illness}
+                </p>
+              )}
+              {profileUser.year && (
+                <p>
+                  <b>المستوى الدراسي:</b> {profileUser.year}
+                </p>
+              )}
+              {profileUser.phone && (
+                <p>
+                  <b>رقم الهاتف:</b> {profileUser.phone}
+                </p>
+              )}
             </div>
-            <DialogRating/>      
+            <DialogRating />
           </div>
         </div>
       )}

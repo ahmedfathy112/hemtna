@@ -1,24 +1,41 @@
 import React, { useRef, useState } from "react";
-import { FaStar, FaEdit, FaSave, FaGraduationCap, FaCertificate, FaPhone, FaUser, FaTrash } from "react-icons/fa";
-import './Profile.css';
+import {
+  FaStar,
+  FaEdit,
+  FaSave,
+  FaGraduationCap,
+  FaCertificate,
+  FaPhone,
+  FaUser,
+  FaTrash,
+} from "react-icons/fa";
+import "./Profile.css";
 import { FiAlignRight } from "react-icons/fi";
-import Dialog from '../Home/Dialog';
-import { createPortal } from 'react-dom';
+import Dialog from "../Home/Dialog";
+import { createPortal } from "react-dom";
 
 const DeleteModal = ({ show, onConfirm, onCancel }) => {
   if (!show) return null;
 
   return createPortal(
-    <div className="custom-modal-overlay" onClick={(e) => {
-      // Prevent clicks on overlay from propagating to dialog or other elements
-      e.stopPropagation();
-      // onCancel(); // Optionally close modal when clicking outside
-    }}>
+    <div
+      className="custom-modal-overlay"
+      onClick={(e) => {
+        // Prevent clicks on overlay from propagating to dialog or other elements
+        e.stopPropagation();
+        // onCancel(); // Optionally close modal when clicking outside
+      }}
+    >
       <div className="custom-modal" onClick={(e) => e.stopPropagation()}>
         <h3>تسجيل خروج</h3>
         <p>هل انت متأكد من تسجيل الخروج ؟</p>
         <div className="modal-icon">
-          <svg className="icon-triangle" width="110" height="110" viewBox="0 0 110 110">
+          <svg
+            className="icon-triangle"
+            width="110"
+            height="110"
+            viewBox="0 0 110 110"
+          >
             <polygon
               points="20,95 55,25 90,95 20,95"
               fill="none"
@@ -31,8 +48,12 @@ const DeleteModal = ({ show, onConfirm, onCancel }) => {
           <span className="icon-exclamation">!</span>
         </div>
         <div className="modal-actions">
-          <button className="modal-btn yes" onClick={onConfirm}>نعم</button>
-          <button className="modal-btn no" onClick={onCancel}>لا</button>
+          <button className="modal-btn yes" onClick={onConfirm}>
+            نعم
+          </button>
+          <button className="modal-btn no" onClick={onCancel}>
+            لا
+          </button>
         </div>
       </div>
     </div>,
@@ -44,7 +65,7 @@ const Profile = () => {
   const dialogRef = useRef(null);
   const [isEditing, setIsEditing] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  
+
   // Doctor profile data
   const [doctorProfile, setDoctorProfile] = useState({
     name: "د. أحمد محمد",
@@ -53,10 +74,10 @@ const Profile = () => {
     certificates: [
       "شهادة البورد الأمريكي في طب الأطفال",
       "شهادة متقدمة في علاج التوحد",
-      "شهادة في التغذية العلاجية للأطفال"
+      "شهادة في التغذية العلاجية للأطفال",
     ],
     phone: "+20 123 456 7890",
-    experience: "15 سنة خبرة"
+    experience: "15 سنة خبرة",
   });
 
   const openDialog = () => {
@@ -78,9 +99,9 @@ const Profile = () => {
   };
 
   const handleProfileChange = (field, value) => {
-    setDoctorProfile(prev => ({
+    setDoctorProfile((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
@@ -89,7 +110,7 @@ const Profile = () => {
   };
 
   const confirmDeleteAccount = () => {
-    console.log('Account deletion requested');
+    console.log("Account deletion requested");
     // Here you would typically make an API call to delete the account
     setShowDeleteModal(false);
     closeDialog(); // Close the profile dialog after confirming deletion
@@ -102,7 +123,7 @@ const Profile = () => {
   };
 
   const handleNewPost = (newPost) => {
-    console.log('New post created:', newPost);
+    console.log("New post created:", newPost);
   };
 
   return (
@@ -133,20 +154,26 @@ const Profile = () => {
           <div className="img-name img-name-Profile">
             <h4>الملف الشخصي للدكتور</h4>
           </div>
-          <button onClick={closeDialog} className="close">✕</button>
+          <button onClick={closeDialog} className="close">
+            ✕
+          </button>
         </div>
 
         <div className="doctor-profile">
           <div className="profile-header">
             <div className="profile-image-container">
-              <img 
-                src={require('../Rinning/722f837b-b9db-4ef6-94bd-24b66670206a-removebg-preview.png')} 
-                alt="Doctor Profile" 
+              <img
+                src={require("../Rinning/722f837b-b9db-4ef6-94bd-24b66670206a-removebg-preview.png")}
+                alt="Doctor Profile"
                 className="profile-image"
               />
               {isEditing && (
                 <label className="image-upload-label">
-                  <input type="file" accept="image/*" className="image-upload-input" />
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="image-upload-input"
+                  />
                   <FaEdit className="edit-icon" />
                 </label>
               )}
@@ -156,7 +183,7 @@ const Profile = () => {
                 <input
                   type="text"
                   value={doctorProfile.name}
-                  onChange={(e) => handleProfileChange('name', e.target.value)}
+                  onChange={(e) => handleProfileChange("name", e.target.value)}
                   className="profile-input"
                 />
               ) : (
@@ -166,7 +193,9 @@ const Profile = () => {
                 <input
                   type="text"
                   value={doctorProfile.specialization}
-                  onChange={(e) => handleProfileChange('specialization', e.target.value)}
+                  onChange={(e) =>
+                    handleProfileChange("specialization", e.target.value)
+                  }
                   className="profile-input"
                 />
               ) : (
@@ -182,7 +211,9 @@ const Profile = () => {
                 <input
                   type="text"
                   value={doctorProfile.education}
-                  onChange={(e) => handleProfileChange('education', e.target.value)}
+                  onChange={(e) =>
+                    handleProfileChange("education", e.target.value)
+                  }
                   className="profile-input"
                 />
               ) : (
@@ -196,7 +227,7 @@ const Profile = () => {
                 <input
                   type="text"
                   value={doctorProfile.phone}
-                  onChange={(e) => handleProfileChange('phone', e.target.value)}
+                  onChange={(e) => handleProfileChange("phone", e.target.value)}
                   className="profile-input"
                 />
               ) : (
@@ -216,26 +247,31 @@ const Profile = () => {
                         onChange={(e) => {
                           const newCerts = [...doctorProfile.certificates];
                           newCerts[index] = e.target.value;
-                          handleProfileChange('certificates', newCerts);
+                          handleProfileChange("certificates", newCerts);
                         }}
                         className="profile-input"
                       />
-                      <button 
+                      <button
                         className="remove-certificate"
                         onClick={() => {
-                          const newCerts = doctorProfile.certificates.filter((_, i) => i !== index);
-                          handleProfileChange('certificates', newCerts);
+                          const newCerts = doctorProfile.certificates.filter(
+                            (_, i) => i !== index
+                          );
+                          handleProfileChange("certificates", newCerts);
                         }}
                       >
                         ✕
                       </button>
                     </div>
                   ))}
-                  <button 
+                  <button
                     className="add-certificate"
                     onClick={() => {
-                      const newCerts = [...doctorProfile.certificates, "شهادة جديدة"];
-                      handleProfileChange('certificates', newCerts);
+                      const newCerts = [
+                        ...doctorProfile.certificates,
+                        "شهادة جديدة",
+                      ];
+                      handleProfileChange("certificates", newCerts);
                     }}
                   >
                     + إضافة شهادة
@@ -252,14 +288,14 @@ const Profile = () => {
           </div>
 
           <div className="profile-actions">
-            <button 
+            <button
               onClick={handleProfileEdit}
-              className={`edit-profile-btn ${isEditing ? 'save' : ''}`}
+              className={`edit-profile-btn ${isEditing ? "save" : ""}`}
             >
               {isEditing ? <FaSave /> : <FaEdit />}
-              {isEditing ? 'حفظ' : 'تعديل'}
+              {isEditing ? "حفظ" : "تعديل"}
             </button>
-            <button 
+            <button
               onClick={handleDeleteAccount}
               className="delete-account-btn"
             >
@@ -267,7 +303,6 @@ const Profile = () => {
               حذف الحساب
             </button>
           </div>
-
         </div>
       </dialog>
       <DeleteModal
